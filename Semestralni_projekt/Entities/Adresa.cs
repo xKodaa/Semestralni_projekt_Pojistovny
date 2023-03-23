@@ -10,15 +10,16 @@ namespace Semestralni_projekt.Entities
     {
         String mesto { get; set; }
         String ulice { get; set; }
-        String cisloPopisne { get; set; }
+        char[] cisloPopisne { get; set; }
         int[] psc { get; set; }
 
-        public Adresa(String mesto, String ulice, String cisloPopisne, int[] psc) 
+        public Adresa(String mesto, String ulice, char[] cisloPopisne, int[] psc) 
         {
+            this.psc = new int[5];
+            this.cisloPopisne = new char[10];
             this.mesto = mesto;
             this.ulice = ulice;
             this.cisloPopisne = cisloPopisne;
-            this.psc = new int[5];
             this.psc = psc;
         }
     }
