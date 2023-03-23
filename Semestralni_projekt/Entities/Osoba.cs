@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace Semestralni_projekt
 {
-    internal class Osoba
+    public class Osoba
     {
+        String jmeno { get; set; }
+        String prijmeni { get; set; }
+
+        public Osoba(String jmeno, String prijmeni)
+        {
+            this.jmeno = jmeno;
+            this.prijmeni = prijmeni;
+        }
     }
 }

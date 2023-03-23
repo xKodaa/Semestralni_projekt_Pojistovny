@@ -6,7 +6,20 @@ using System.Threading.Tasks;
 
 namespace Semestralni_projekt.Entities
 {
-    internal class Adresa
+    public class Adresa
     {
+        String mesto { get; set; }
+        String ulice { get; set; }
+        String cisloPopisne { get; set; }
+        int[] psc { get; set; }
+
+        public Adresa(String mesto, String ulice, String cisloPopisne, int[] psc) 
+        {
+            this.mesto = mesto;
+            this.ulice = ulice;
+            this.cisloPopisne = cisloPopisne;
+            this.psc = new int[5];
+            this.psc = psc;
+        }
     }
 }
