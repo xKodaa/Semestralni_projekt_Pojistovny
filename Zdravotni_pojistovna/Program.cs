@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace Semestralni_projekt
 {
-    internal static class Program
+    public static class Program
     {
         /// <summary>
         /// Hlavní vstupní bod aplikace.

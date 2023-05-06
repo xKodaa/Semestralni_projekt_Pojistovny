@@ -8,13 +8,18 @@ namespace Entities
 {
     public class Osoba
     {
-        String jmeno { get; set; }
-        String prijmeni { get; set; }
+        public String jmeno { get; set; }
+        public String prijmeni { get; set; }
 
         public Osoba(String jmeno, String prijmeni)
         {
             this.jmeno = jmeno;
             this.prijmeni = prijmeni;
+        }
+
+        public override string ToString()
+        {
+            return "Jméno: " + jmeno + ", příjmení: " + prijmeni;
         }
     }
 }

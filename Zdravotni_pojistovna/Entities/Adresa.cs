@@ -8,19 +8,23 @@ namespace Entities
 {
     public class Adresa
     {
-        String mesto { get; set; }
-        String ulice { get; set; }
-        char[] cisloPopisne { get; set; }
-        int[] psc { get; set; }
+        public String mesto { get; set; }
+        public String ulice { get; set; }
+        public String cisloPopisne { get; set; }
+        public int psc { get; set; }
 
-        public Adresa(String mesto, String ulice, char[] cisloPopisne, int[] psc) 
+        public Adresa(String mesto, String ulice, String cisloPopisne, int psc) 
         {
-            this.psc = new int[5];
-            this.cisloPopisne = new char[10];
+            this.cisloPopisne = cisloPopisne;
             this.mesto = mesto;
             this.ulice = ulice;
             this.cisloPopisne = cisloPopisne;
             this.psc = psc;
+        }
+
+        public override string ToString()
+        {
+            return "Město: " + mesto + ", ulice: " + ulice + ", č.p. " + cisloPopisne;
         }
     }
 }
