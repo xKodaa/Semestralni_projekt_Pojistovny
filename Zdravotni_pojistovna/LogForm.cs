@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,12 +13,19 @@ namespace Semestralni_projekt
 {
     public partial class LogForm : Form
     {
-        public String timeOfLog = "[" + DateTime.Now.ToString("HH:mm:ss") + "] | ";
 
-        public LogForm(String msg)
+        public LogForm()
         {
             InitializeComponent();
-            this.logsLb.Items.Add(timeOfLog + msg);
+            String filePath = "logs.txt";
+            using (StreamReader reader = new StreamReader(filePath))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    logsLb.Items.Add(line);
+                }
+            }
         }
 
         private void btnOk_Click(object sender, EventArgs e)

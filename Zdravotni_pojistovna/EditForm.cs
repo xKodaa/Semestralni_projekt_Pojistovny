@@ -10,20 +10,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entities;
 using Zdravotni_pojistovna;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Logging;
 
 namespace Semestralni_projekt
 {
     public partial class EditForm : Form
     {
         public PojistovnaEntry entry;
-        public PojistovnaEntries entries = new PojistovnaEntries();
-        
+        public PojistovnaEntries entries;
+
         public EditForm()
         {
             InitializeComponent();
             pojistovnaBox.DataSource = Enum.GetValues(typeof(Pojistovny));
             pojistovnaBox.SelectedIndex = 0;
+            entries = new PojistovnaEntries();
         }
 
         private void btnOk_Click(object sender, EventArgs e)
@@ -50,7 +51,15 @@ namespace Semestralni_projekt
             adresa = new Adresa(mesto, ulice, cisloPopisne, psc);
             Enum.TryParse(pojistovnaBox.SelectedValue.ToString(), out pojistovna);
             entry = new PojistovnaEntry(osoba, adresa, pojistovna);
-            entries.addEntry(entry);
+            try 
+            {
+                entries.addEntry(entry);
+                Logger.sendLog(Log.ENTRY_ADDED, entries.entriesCount);
+            }
+            catch (Exception ex) 
+            {
+                Logger.sendLog(Log.ENTRY_ADD_FAILED, entries.entriesCount);
+            }
             DialogResult = DialogResult.OK;
             clearBoxes();
         }

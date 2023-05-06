@@ -17,8 +17,8 @@ namespace Semestralni_projekt
     {
         public PojistovnaEntry entry;
         public PojistovnaEntries entries;
-
         EditForm editForm = new EditForm();
+        LogForm logForm;
 
         public MainForm()
         {
@@ -49,12 +49,11 @@ namespace Semestralni_projekt
 
         private void btnLogs_Click(object sender, EventArgs e)
         {
-            LogForm logForm = new LogForm("TEST");
+            LogForm logForm = new LogForm();
             if (logForm.ShowDialog() == DialogResult.OK) 
             { 
                 logForm.Close();
             }
-
         }
 
         public void refreshItems() 
