@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Semestralni_projekt.Entities
+namespace Entities
 {
     public enum Pojistovny
     {
