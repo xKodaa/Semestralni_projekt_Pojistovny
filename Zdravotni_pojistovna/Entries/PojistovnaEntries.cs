@@ -9,13 +9,18 @@ namespace Zdravotni_pojistovna
 {
     public class PojistovnaEntries
     {
-        public PojistovnaEntry[] entries = new PojistovnaEntry[50];
-        public int entriesCount = 0;
+        public PojistovnaEntry[] entries;
+        public int entriesCount;
 
-        public PojistovnaEntries(PojistovnaEntry entry)
+        public PojistovnaEntries()
         {
-            entries[entriesCount] = entry;
-            this.entriesCount++;
+            entries = new PojistovnaEntry[50];
+            entriesCount = 0;
+        }
+
+        public void addEntry(PojistovnaEntry entry)
+        { 
+            entries[entriesCount++] = entry; 
         }
     }
 }

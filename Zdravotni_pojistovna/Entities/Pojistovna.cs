@@ -31,11 +31,11 @@ namespace Entities
             switch (pojistovna)
             {
                 case Pojistovny.VZP:
-                    return "Všeobecná zdravotní pojišťovna";
+                    return "Všeobecná Z.P.";
                 case Pojistovny.OZP:
-                    return "Oborová zdravotní pojišťovna";                
+                    return "Oborová Z.P.";                
                 case Pojistovny.ZPMV:
-                    return "Zdravotní pojišťovna ministerstva vnitra ČR";
+                    return "Z.P. ministerstva vnitra ČR";
                 default:
                     return "";
             }

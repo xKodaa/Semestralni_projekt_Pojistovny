@@ -85,7 +85,7 @@ namespace Semestralni_projekt
             // btnLogs
             // 
             this.btnLogs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnLogs.Location = new System.Drawing.Point(960, 657);
+            this.btnLogs.Location = new System.Drawing.Point(1160, 659);
             this.btnLogs.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogs.Name = "btnLogs";
             this.btnLogs.Size = new System.Drawing.Size(209, 31);
@@ -139,9 +139,9 @@ namespace Semestralni_projekt
             this.listBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.listBox.FormattingEnabled = true;
             this.listBox.ItemHeight = 25;
-            this.listBox.Location = new System.Drawing.Point(-1, 47);
+            this.listBox.Location = new System.Drawing.Point(-1, -3);
             this.listBox.Name = "listBox";
-            this.listBox.Size = new System.Drawing.Size(1200, 579);
+            this.listBox.Size = new System.Drawing.Size(1384, 629);
             this.listBox.TabIndex = 10;
             // 
             // btnSave
@@ -172,7 +172,7 @@ namespace Semestralni_projekt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1182, 701);
+            this.ClientSize = new System.Drawing.Size(1382, 701);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.listBox);

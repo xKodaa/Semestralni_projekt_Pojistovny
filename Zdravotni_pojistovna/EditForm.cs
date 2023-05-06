@@ -17,7 +17,7 @@ namespace Semestralni_projekt
     public partial class EditForm : Form
     {
         public PojistovnaEntry entry;
-        public PojistovnaEntries entries;
+        public PojistovnaEntries entries = new PojistovnaEntries();
         
         public EditForm()
         {
@@ -50,7 +50,7 @@ namespace Semestralni_projekt
             adresa = new Adresa(mesto, ulice, cisloPopisne, psc);
             Enum.TryParse(pojistovnaBox.SelectedValue.ToString(), out pojistovna);
             entry = new PojistovnaEntry(osoba, adresa, pojistovna);
-            entries = new PojistovnaEntries(entry);
+            entries.addEntry(entry);
             DialogResult = DialogResult.OK;
             clearBoxes();
         }

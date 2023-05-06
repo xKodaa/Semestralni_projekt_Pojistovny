@@ -23,6 +23,7 @@ namespace Semestralni_projekt
         public MainForm()
         {
             InitializeComponent();
+            listBox.Items.Add("ID\tJméno\t\tPříjmení\t\tMěsto\t\tUlice\t\tČ.P.\tPSČ\t\tPojišťovna");
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -58,8 +59,8 @@ namespace Semestralni_projekt
 
         public void refreshItems() 
         {
-            listBox.Items.Add("ID\t|\tJméno\t|\tPříjmení\t|\tMěsto\t|\tUlice\t|\tČ.P.\t|\tPSČ\t|\tPojišťovna");
-
+            listBox.Items.Clear();
+            listBox.Items.Add("ID\tJméno\t\tPříjmení\t\tMěsto\t\tUlice\t\tČ.P.\tPSČ\t\tPojišťovna");
             for (int i = 0; i < entries.entriesCount; i++)
             { 
                 PojistovnaEntry entry = entries.entries[i];
@@ -72,7 +73,7 @@ namespace Semestralni_projekt
                 String pojistovna = Pojistovna.GetName(entry.pojistovna);
                 String tab = "\t\t";
 
-                listBox.Items.Add(i + tab + jmeno + tab + prijmeni + tab + mesto + tab + ulice + tab + cp + tab + psc + tab + pojistovna);
+                listBox.Items.Add(i + "\t" + jmeno + tab + prijmeni + tab + mesto + tab + ulice + tab + cp + "\t" + psc + tab + pojistovna);
             }
         }
 
