@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entiti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logging", "Logging\Logging.csproj", "{1F1B160F-3BAA-4BA9-999E-B61A33E6DE85}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainProject", "WindowsFormsApp1\MainProject.csproj", "{480E0F93-4FAE-4AF6-90CD-37DED0C3EB25}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zdravotni_pojistovna", "Zdravotni_pojistovna\Zdravotni_pojistovna.csproj", "{D72C80F9-BAC4-4024-9AD4-B5B1FC8BEEFF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{1F1B160F-3BAA-4BA9-999E-B61A33E6DE85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F1B160F-3BAA-4BA9-999E-B61A33E6DE85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F1B160F-3BAA-4BA9-999E-B61A33E6DE85}.Release|Any CPU.Build.0 = Release|Any CPU
-		{480E0F93-4FAE-4AF6-90CD-37DED0C3EB25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{480E0F93-4FAE-4AF6-90CD-37DED0C3EB25}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{480E0F93-4FAE-4AF6-90CD-37DED0C3EB25}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{480E0F93-4FAE-4AF6-90CD-37DED0C3EB25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D72C80F9-BAC4-4024-9AD4-B5B1FC8BEEFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D72C80F9-BAC4-4024-9AD4-B5B1FC8BEEFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D72C80F9-BAC4-4024-9AD4-B5B1FC8BEEFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D72C80F9-BAC4-4024-9AD4-B5B1FC8BEEFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

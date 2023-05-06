@@ -16,6 +16,8 @@ namespace Semestralni_projekt
         public EditForm()
         {
             InitializeComponent();
+            pojistovnaBox.DataSource = Enum.GetValues(typeof(Pojistovny));
+            pojistovnaBox.SelectedIndex = 0;
         }
 
         private void btnOk_Click(object sender, EventArgs e)
