@@ -12,6 +12,8 @@ namespace Logging
 
         DATA_LOADED,
         DATA_SAVED,
+
+        ALL_CLEARED
     }
     public static class Logger
     {
@@ -48,6 +50,11 @@ namespace Logging
 
                 case Log.DATA_SAVED:
                     msg = "Data uložena do souboru";
+                    File.AppendAllText(filePath, msg + Environment.NewLine);
+                    break;
+                                    
+                case Log.ALL_CLEARED:
+                    msg = "Všechna data byla smazána";
                     File.AppendAllText(filePath, msg + Environment.NewLine);
                     break;
 

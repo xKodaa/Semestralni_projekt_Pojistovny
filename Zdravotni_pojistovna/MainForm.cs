@@ -42,7 +42,7 @@ namespace Semestralni_projekt
             try
             {
                 int selectedIndex = listBox.SelectedIndex;
-                if (selectedIndex != 0)
+                if (selectedIndex != 0 && selectedIndex != -1)
                 {
                     int fixedIndex = selectedIndex - 1;
                     Osoba osoba = entries.entries[fixedIndex].osoba;
@@ -63,6 +63,10 @@ namespace Semestralni_projekt
                         refreshItems();
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Není vybrána žádná položka", "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (Exception) { }
         }
@@ -72,7 +76,7 @@ namespace Semestralni_projekt
             try 
             {
                 int selectedIndex = listBox.SelectedIndex;
-                if (selectedIndex != 0)
+                if (selectedIndex != 0 && selectedIndex != -1)
                 {
                     int fixedIndex = selectedIndex - 1;
                     entries.entries[fixedIndex] = null;
@@ -81,7 +85,11 @@ namespace Semestralni_projekt
                     refreshItems();
                     Logger.sendLog(Log.ENTRY_REMOVED, fixedIndex);
                 }
-            } catch (Exception ex) { }
+                else 
+                {
+                    MessageBox.Show("Není vybrána žádná položka", "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            } catch (Exception) { }
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
@@ -89,6 +97,10 @@ namespace Semestralni_projekt
             try 
             {
                 string jsonString = File.ReadAllText(backup);
+                if (jsonString.Equals("")) 
+                {
+                    MessageBox.Show("Soubor je prázdný", "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 entries = JsonConvert.DeserializeObject<PojistovnaEntries>(jsonString);
                 refreshItems();
                 Logger.sendLog(Log.DATA_LOADED, entries.entriesCount);
@@ -99,6 +111,11 @@ namespace Semestralni_projekt
         {
             try 
             {
+                if (entries == null) 
+                {
+                    MessageBox.Show("Data jsou prázdná", "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 if (entries.entriesCount != 0)
                 {
                     using (StreamWriter sw = new StreamWriter(backup))
@@ -118,8 +135,10 @@ namespace Semestralni_projekt
         {
             if (entries != null) 
             {
+                Logger.sendLog(Log.ALL_CLEARED, entries.entriesCount);
                 entries.entriesCount = 0;
                 entries.entries = null;
+                entries = null;
                 refreshItems();
             }
         }
@@ -137,20 +156,24 @@ namespace Semestralni_projekt
         {
             listBox.Items.Clear();
             listBox.Items.Add(listBoxHeading);
-            for (int i = 0; i < entries.entriesCount; i++)
-            { 
-                PojistovnaEntry entry = entries.entries[i];
-                String jmeno = entry.osoba.jmeno;
-                String prijmeni = entry.osoba.prijmeni;
-                String mesto = entry.adresa.mesto;
-                String ulice = entry.adresa.ulice;
-                String cp = entry.adresa.cisloPopisne;
-                int psc = entry.adresa.psc;
-                String pojistovna = Pojistovna.GetName(entry.pojistovna);
-                String tab = "\t\t";
+            if (entries != null)
+            {
+                for (int i = 0; i < entries.entriesCount; i++)
+                {
+                    PojistovnaEntry entry = entries.entries[i];
+                    String jmeno = entry.osoba.jmeno;
+                    String prijmeni = entry.osoba.prijmeni;
+                    String mesto = entry.adresa.mesto;
+                    String ulice = entry.adresa.ulice;
+                    String cp = entry.adresa.cisloPopisne;
+                    int psc = entry.adresa.psc;
+                    String pojistovna = Pojistovna.GetName(entry.pojistovna);
+                    String tab = "\t\t";
 
-                listBox.Items.Add(i + "\t" + jmeno + tab + prijmeni + tab + mesto + tab + ulice + tab + cp + "\t" + psc + tab + pojistovna);
+                    listBox.Items.Add(i + "\t" + jmeno + tab + prijmeni + tab + mesto + tab + ulice + tab + cp + "\t" + psc + tab + pojistovna);
+                }
             }
+
         }
 
         private void clearFiles()
