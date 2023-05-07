@@ -17,7 +17,8 @@ namespace Logging
     }
     public static class Logger
     {
-        static String filePath = "logs.txt";    
+        private static String filePath = "logs.txt";  
+        private static String timestamp = "["+DateTime.Now.ToString()+"] | ";
         public static void sendLog(Log log, int idEntry)
         {
             String msg;
@@ -25,41 +26,41 @@ namespace Logging
             switch (log)
             {
                 case Log.ENTRY_ADDED:
-                    msg = "Záznam s ID: " + id + " přidán";
+                    msg = timestamp + "Záznam s ID: " + id + " přidán";
                     File.AppendAllText(filePath, msg + Environment.NewLine);
                     break;
                 case Log.ENTRY_ADD_FAILED:
-                    msg = "Záznam s ID se nepovedlo přidat";
+                    msg = timestamp + "Záznam s ID se nepovedlo přidat";
                     File.AppendAllText(filePath, msg + Environment.NewLine);
                     break;
                                   
                 case Log.ENTRY_REMOVED:
-                    msg = "Záznam s ID: " + id + " odebrán";
+                    msg = timestamp + "Záznam s ID: " + id + " odebrán";
                     File.AppendAllText(filePath, msg + Environment.NewLine);
                     break;
 
                 case Log.ENTRY_MODIFIED:
-                    msg = "Záznam s ID: " + id + " upraven";
+                    msg = timestamp + "Záznam s ID: " + id + " upraven";
                     File.AppendAllText(filePath, msg + Environment.NewLine);
                     break;
 
                 case Log.DATA_LOADED:
-                    msg = "Data načtena ze souboru";
+                    msg = timestamp + "Data načtena ze souboru";
                     File.AppendAllText(filePath, msg + Environment.NewLine);
                     break;
 
                 case Log.DATA_SAVED:
-                    msg = "Data uložena do souboru";
+                    msg = timestamp + "Data uložena do souboru";
                     File.AppendAllText(filePath, msg + Environment.NewLine);
                     break;
                                     
                 case Log.ALL_CLEARED:
-                    msg = "Všechna data byla smazána";
+                    msg = timestamp + "Všechna data byla smazána";
                     File.AppendAllText(filePath, msg + Environment.NewLine);
                     break;
 
                 default:
-                    msg = "Nespecifický záznam";
+                    msg = timestamp + "Nespecifický záznam";
                     File.AppendAllText(filePath, msg + Environment.NewLine);
                     break;
             }

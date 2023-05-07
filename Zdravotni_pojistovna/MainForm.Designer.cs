@@ -91,7 +91,7 @@ namespace Semestralni_projekt
             this.btnLogs.Name = "btnLogs";
             this.btnLogs.Size = new System.Drawing.Size(209, 31);
             this.btnLogs.TabIndex = 4;
-            this.btnLogs.Text = "Zobrazit znáznam změn";
+            this.btnLogs.Text = "Zobrazit záznam změn";
             this.btnLogs.UseVisualStyleBackColor = true;
             this.btnLogs.Click += new System.EventHandler(this.btnLogs_Click);
             // 
