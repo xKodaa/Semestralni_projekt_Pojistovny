@@ -1,19 +1,10 @@
 ﻿using Entities;
 using Logging;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Zdravotni_pojistovna;
 using Newtonsoft.Json;
-using System.IO;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Semestralni_projekt
 {
@@ -21,15 +12,17 @@ namespace Semestralni_projekt
     {
         public PojistovnaEntry entry;
         public PojistovnaEntries entries;
-        EditForm editForm = new EditForm();
-        private string backup;
+        private EditForm editForm = new EditForm();
+        private readonly string backup;
+        private readonly string logs;
 
         public MainForm()
         {
             InitializeComponent();
             backup = "backup.json";
+            logs = "logs.txt";
             listBox.Items.Add("ID\tJméno\t\tPříjmení\t\tMěsto\t\tUlice\t\tČ.P.\tPSČ\t\tPojišťovna");
-            ClearLogFile("logs.txt");
+            clearFiles();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -149,9 +142,10 @@ namespace Semestralni_projekt
             }
         }
 
-        public static void ClearLogFile(string filePath)
+        private void clearFiles()
         {
-            File.WriteAllText(filePath, string.Empty);
+            File.WriteAllText(backup, string.Empty);
+            File.WriteAllText(logs, string.Empty);
         }
 
         private void sortArray() 
