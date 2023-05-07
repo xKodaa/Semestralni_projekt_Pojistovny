@@ -44,6 +44,7 @@ namespace Semestralni_projekt
             this.listBox = new System.Windows.Forms.ListBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAdd
@@ -168,11 +169,24 @@ namespace Semestralni_projekt
             this.btnLoad.UseVisualStyleBackColor = true;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
+            // btnClear
+            // 
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.btnClear.Location = new System.Drawing.Point(1027, 659);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(4);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(125, 31);
+            this.btnClear.TabIndex = 13;
+            this.btnClear.Text = "Vyčisti";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1382, 701);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.listBox);
@@ -206,6 +220,7 @@ namespace Semestralni_projekt
         private ListBox listBox;
         private Button btnSave;
         private Button btnLoad;
+        private Button btnClear;
     }
 }
 

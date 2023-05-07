@@ -15,13 +15,15 @@ namespace Semestralni_projekt
         private EditForm editForm = new EditForm();
         private readonly string backup;
         private readonly string logs;
+        private string listBoxHeading;
 
         public MainForm()
         {
             InitializeComponent();
             backup = "backup.json";
             logs = "logs.txt";
-            listBox.Items.Add("ID\tJméno\t\tPříjmení\t\tMěsto\t\tUlice\t\tČ.P.\tPSČ\t\tPojišťovna");
+            listBoxHeading = "ID\tJméno\t\tPříjmení\t\tMěsto\t\tUlice\t\tČ.P.\tPSČ\t\tPojišťovna";
+            listBox.Items.Add(listBoxHeading);
             clearFiles();
         }
 
@@ -62,7 +64,7 @@ namespace Semestralni_projekt
                     }
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception) { }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -111,7 +113,16 @@ namespace Semestralni_projekt
                 }
             } catch (Exception) { }
         }
-    
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            if (entries != null) 
+            {
+                entries.entriesCount = 0;
+                entries.entries = null;
+                refreshItems();
+            }
+        }
 
         private void btnLogs_Click(object sender, EventArgs e)
         {
@@ -125,7 +136,7 @@ namespace Semestralni_projekt
         public void refreshItems() 
         {
             listBox.Items.Clear();
-            listBox.Items.Add("ID\tJméno\t\tPříjmení\t\tMěsto\t\tUlice\t\tČ.P.\tPSČ\t\tPojišťovna");
+            listBox.Items.Add(listBoxHeading);
             for (int i = 0; i < entries.entriesCount; i++)
             { 
                 PojistovnaEntry entry = entries.entries[i];
@@ -158,5 +169,6 @@ namespace Semestralni_projekt
                 }
             }
         }
+
     }
 }
