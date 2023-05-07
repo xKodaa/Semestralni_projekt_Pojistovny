@@ -25,40 +25,40 @@ namespace Logging
         public static void sendLog(Log log, int idEntry)
         {
             String msg;
-            int id = idEntry - 1;
+            int id = idEntry;
             switch (log)
             {
                 case Log.ENTRY_ADDED:
-                    msg = "Entry ID: " + id + " added";
+                    msg = "Záznam s ID: " + id + " přidán";
                     File.AppendAllText(filePath, msg + Environment.NewLine);
                     break;
                 case Log.ENTRY_ADD_FAILED:
-                    msg = "Entry ID: failed to add";
+                    msg = "Záznam s ID se nepovedlo přidat";
                     File.AppendAllText(filePath, msg + Environment.NewLine);
                     break;
                                   
                 case Log.ENTRY_REMOVED:
-                    msg = "Entry ID:" + id +" removed";
+                    msg = "Záznam s ID: " + id + " odebrán";
                     File.AppendAllText(filePath, msg + Environment.NewLine);
                     break;
 
                 case Log.ENTRY_MODIFIED:
-                    msg = "Entry ID:" + id + " modified";
+                    msg = "Záznam s ID: " + id + " upraven";
                     File.AppendAllText(filePath, msg + Environment.NewLine);
                     break;
 
                 case Log.DATA_LOADED:
-                    msg = "Data loaded from file";
+                    msg = "Data načtena ze souboru";
                     File.AppendAllText(filePath, msg + Environment.NewLine);
                     break;
 
                 case Log.DATA_SAVED:
-                    msg = "Data saved into file";
+                    msg = "Data uložena do souboru";
                     File.AppendAllText(filePath, msg + Environment.NewLine);
                     break;
 
                 default:
-                    msg = "Unspecified log type";
+                    msg = "Nespecifický záznam";
                     File.AppendAllText(filePath, msg + Environment.NewLine);
                     break;
             }

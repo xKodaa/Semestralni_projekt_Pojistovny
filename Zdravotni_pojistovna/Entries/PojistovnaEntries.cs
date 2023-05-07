@@ -14,7 +14,7 @@ namespace Zdravotni_pojistovna
 
         public PojistovnaEntries()
         {
-            entries = new PojistovnaEntry[50];
+            entries = new PojistovnaEntry[10];
             entriesCount = 0;
         }
 

@@ -90,7 +90,7 @@ namespace Semestralni_projekt
             this.jmenoBox.Multiline = true;
             this.jmenoBox.Name = "jmenoBox";
             this.jmenoBox.Size = new System.Drawing.Size(306, 40);
-            this.jmenoBox.TabIndex = 3;
+            this.jmenoBox.TabIndex = 1;
             // 
             // btnOk
             // 
@@ -98,7 +98,7 @@ namespace Semestralni_projekt
             this.btnOk.Location = new System.Drawing.Point(32, 482);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(100, 35);
-            this.btnOk.TabIndex = 6;
+            this.btnOk.TabIndex = 8;
             this.btnOk.Text = "Potvrdit";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
@@ -109,7 +109,7 @@ namespace Semestralni_projekt
             this.btnCancel.Location = new System.Drawing.Point(407, 482);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 35);
-            this.btnCancel.TabIndex = 7;
+            this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Zrušit";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -141,7 +141,7 @@ namespace Semestralni_projekt
             this.prijmeniBox.Multiline = true;
             this.prijmeniBox.Name = "prijmeniBox";
             this.prijmeniBox.Size = new System.Drawing.Size(306, 40);
-            this.prijmeniBox.TabIndex = 11;
+            this.prijmeniBox.TabIndex = 2;
             // 
             // label6
             // 
@@ -190,7 +190,7 @@ namespace Semestralni_projekt
             this.mestoBox.Multiline = true;
             this.mestoBox.Name = "mestoBox";
             this.mestoBox.Size = new System.Drawing.Size(306, 40);
-            this.mestoBox.TabIndex = 16;
+            this.mestoBox.TabIndex = 3;
             // 
             // uliceBox
             // 
@@ -199,7 +199,7 @@ namespace Semestralni_projekt
             this.uliceBox.Multiline = true;
             this.uliceBox.Name = "uliceBox";
             this.uliceBox.Size = new System.Drawing.Size(306, 40);
-            this.uliceBox.TabIndex = 17;
+            this.uliceBox.TabIndex = 4;
             // 
             // cpBox
             // 
@@ -208,7 +208,7 @@ namespace Semestralni_projekt
             this.cpBox.Multiline = true;
             this.cpBox.Name = "cpBox";
             this.cpBox.Size = new System.Drawing.Size(306, 40);
-            this.cpBox.TabIndex = 18;
+            this.cpBox.TabIndex = 5;
             // 
             // pscBox
             // 
@@ -217,7 +217,7 @@ namespace Semestralni_projekt
             this.pscBox.Multiline = true;
             this.pscBox.Name = "pscBox";
             this.pscBox.Size = new System.Drawing.Size(306, 40);
-            this.pscBox.TabIndex = 19;
+            this.pscBox.TabIndex = 6;
             // 
             // pojistovnaBox
             // 
@@ -229,7 +229,7 @@ namespace Semestralni_projekt
             this.pojistovnaBox.MinimumSize = new System.Drawing.Size(306, 0);
             this.pojistovnaBox.Name = "pojistovnaBox";
             this.pojistovnaBox.Size = new System.Drawing.Size(306, 33);
-            this.pojistovnaBox.TabIndex = 20;
+            this.pojistovnaBox.TabIndex = 7;
             // 
             // label10
             // 
