@@ -11,6 +11,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Zdravotni_pojistovna;
+using Newtonsoft.Json;
+using System.IO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Semestralni_projekt
@@ -20,10 +22,12 @@ namespace Semestralni_projekt
         public PojistovnaEntry entry;
         public PojistovnaEntries entries;
         EditForm editForm = new EditForm();
+        private string backup;
 
         public MainForm()
         {
             InitializeComponent();
+            backup = "backup.json";
             listBox.Items.Add("ID\tJméno\t\tPříjmení\t\tMěsto\t\tUlice\t\tČ.P.\tPSČ\t\tPojišťovna");
             ClearLogFile("logs.txt");
         }
@@ -87,13 +91,34 @@ namespace Semestralni_projekt
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-
+            try 
+            {
+                string jsonString = File.ReadAllText(backup);
+                entries = JsonConvert.DeserializeObject<PojistovnaEntries>(jsonString);
+                refreshItems();
+                Logger.sendLog(Log.DATA_LOADED, entries.entriesCount);
+            } catch (Exception) { }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-
+            try 
+            {
+                if (entries.entriesCount != 0)
+                {
+                    using (StreamWriter sw = new StreamWriter(backup))
+                    {
+                        using (JsonWriter writer = new JsonTextWriter(sw))
+                        {
+                            JsonSerializer serializer = new JsonSerializer();
+                            serializer.Serialize(writer, entries);
+                        }
+                    }
+                    Logger.sendLog(Log.DATA_SAVED, entries.entriesCount);
+                }
+            } catch (Exception) { }
         }
+    
 
         private void btnLogs_Click(object sender, EventArgs e)
         {
@@ -102,7 +127,6 @@ namespace Semestralni_projekt
             { 
                 logForm.Close();
             }
-            
         }
 
         public void refreshItems() 
